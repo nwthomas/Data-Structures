@@ -156,4 +156,13 @@ class DoublyLinkedList:
         """
         Returns the highest value currently in the list
         """
-        pass
+        if self.length is 0:
+            return None
+        else:
+            highest = self.head.value
+            current_node = self.head
+            while current_node.next is not None:
+                current_node = current_node.next
+                if highest < current_node.value:
+                    highest = current_node.value
+            return highest
