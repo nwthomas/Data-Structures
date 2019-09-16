@@ -4,11 +4,11 @@ Answer the following questions for each of the data structures you implemented a
 
 1. What is the runtime complexity of `enqueue`?
 
-The runtime complexity of `enqueue` is `O(n)` since the entire stack must be re-indexed every time a new element is added to the beginning of the list.
+The runtime complexity of `enqueue` is `O(1)`.
 
 2. What is the runtime complexity of `dequeue`?
 
-The runtime complexity of `dequeue` is `O(1)` since an end-of-list lookup is constant time. We then pop that element off the stack, and that is also an `O(1)` runtime complexity.
+The runtime complexity of `dequeue` is `O(1)`.
 
 3. What is the runtime complexity of `len`?
 
