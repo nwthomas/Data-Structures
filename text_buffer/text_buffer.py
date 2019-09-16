@@ -35,7 +35,7 @@ class TextBuffer:
         """
         Removes a character from the back of the text buffer
         """
-        for i in range(num_delete):
+        for _ in range(num_delete):  # Pythonic way to indicate we're not using the index
             self.contents.remove_from_tail()
         return self.__str__()
 
@@ -43,8 +43,16 @@ class TextBuffer:
         """
         Remvoes a character from the front of the text buffer
         """
-        for i in range(num_delete):
+        for _ in range(num_delete):  # Pythonic way to indicate we're not using the index
             self.contents.remove_from_head()
+        return self.__str__()
+
+    def join(self, text_buffer):
+        """
+        Concatenates another text_buffer onto the end of this one
+        """
+        for char in text_buffer:
+            self.append(char)
         return self.__str__()
 
     def __str__(self):
@@ -64,4 +72,6 @@ tb.append(" Dude.")
 tb.delete_front(6)
 tb.prepend("This is nuts. ")
 tb.delete_back(1)
+print(tb)
+tb.join(" - whaaaaaaaaat?")
 print(tb)
