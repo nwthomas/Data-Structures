@@ -1,3 +1,6 @@
+import sys
+
+sys.path.append("../doubly_linked_list")
 from doubly_linked_list import DoublyLinkedList
 
 """
@@ -8,7 +11,7 @@ Python's built-in lists are O(n) for the most part
 
 
 class TextBuffer:
-  # If init is a string, we'll initialize the buffer with it
+    # If init is a string, we'll initialize the buffer with it
     def __init__(self, init=None):
         self.contents = DoublyLinkedList()
         if init is not None:
@@ -35,7 +38,9 @@ class TextBuffer:
         """
         Removes a character from the back of the text buffer
         """
-        for _ in range(num_delete):  # Pythonic way to indicate we're not using the index
+        for _ in range(
+            num_delete
+        ):  # Pythonic way to indicate we're not using the index
             self.contents.remove_from_tail()
         return self.__str__()
 
@@ -43,7 +48,9 @@ class TextBuffer:
         """
         Remvoes a character from the front of the text buffer
         """
-        for _ in range(num_delete):  # Pythonic way to indicate we're not using the index
+        for _ in range(
+            num_delete
+        ):  # Pythonic way to indicate we're not using the index
             self.contents.remove_from_head()
         return self.__str__()
 
