@@ -24,6 +24,10 @@ class BinarySearchTree:
                 traverse_nodes = False
 
     def contains(self, target):
+        """
+        Traverses the BST to check if a given target value is
+        included in it.
+        """
         current = self
         traverse_nodes = True
         while traverse_nodes:
@@ -39,6 +43,9 @@ class BinarySearchTree:
                 return False
 
     def get_max(self):
+        """
+        Traverses the BST to find the highest value in it.
+        """
         highest = self.value
         current = self
         traverse_nodes = True
@@ -51,8 +58,16 @@ class BinarySearchTree:
                 highest = current.value
         return highest
 
-    def for_each(self, cb):
-        pass
+    def for_each(self, callback):
+        """
+        Traverses every node in the BST and performs the
+        callback function on it.
+        """
+        callback(self.value)
+        if self.left:
+            self.left.for_each(callback)
+        if self.right:
+            self.right.for_each(callback)
 
 
 # bst = BinarySearchTree(10)
