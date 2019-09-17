@@ -68,11 +68,3 @@ class BinarySearchTree:
             self.left.for_each(callback)
         if self.right:
             self.right.for_each(callback)
-
-
-# bst = BinarySearchTree(10)
-# bst.insert(20)
-# bst.insert(9)
-# bst.insert(5)
-# bst.insert(6)
-# bst.insert(7)

@@ -72,13 +72,3 @@ class TextBuffer:
             text_buffer += current_node.value
             current_node = current_node.next
         return text_buffer
-
-
-# tb = TextBuffer("Hello CS21")
-# tb.append(" Dude.")
-# tb.delete_front(6)
-# tb.prepend("This is nuts. ")
-# tb.delete_back(1)
-# print(tb)
-# tb.join(" - whaaaaaaaaat?")
-# print(tb)
