@@ -12,7 +12,6 @@ class BinarySearchTree:
         current = self
         traverse_nodes = True
         while traverse_nodes:
-            print(current.value)
             if current.value > value and current.left:
                 current = current.left
             elif current.value < value and current.right:
@@ -28,17 +27,16 @@ class BinarySearchTree:
         current = self
         traverse_nodes = True
         while traverse_nodes:
-            print(current.value)
-            if current.value > value and current.left:
+            if current.value is target:
+                return True
+            elif current.value > target and current.left:
                 current = current.left
-            elif current.value < value and current.right:
+            elif current.value < target and current.right:
                 current = current.right
-            elif current.value > value and not current.left:
-                current.left = BinarySearchTree(value)
-                traverse_nodes = False
-            elif current.value < value and not current.right:
-                current.right = BinarySearchTree(value)
-                traverse_nodes = False
+            elif current.value > target and not current.left:
+                return False
+            elif current.value < target and not current.right:
+                return False
 
     def get_max(self):
         pass
@@ -53,4 +51,3 @@ bst.insert(9)
 bst.insert(5)
 bst.insert(6)
 bst.insert(7)
-print(bst)
