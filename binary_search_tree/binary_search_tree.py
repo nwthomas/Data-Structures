@@ -39,15 +39,25 @@ class BinarySearchTree:
                 return False
 
     def get_max(self):
-        pass
+        highest = self.value
+        current = self
+        traverse_nodes = True
+        while traverse_nodes:
+            if current.right:
+                current = current.right
+            elif not current.right:
+                traverse_nodes = False
+            if current.value > highest:
+                highest = current.value
+        return highest
 
     def for_each(self, cb):
         pass
 
 
-bst = BinarySearchTree(10)
-bst.insert(20)
-bst.insert(9)
-bst.insert(5)
-bst.insert(6)
-bst.insert(7)
+# bst = BinarySearchTree(10)
+# bst.insert(20)
+# bst.insert(9)
+# bst.insert(5)
+# bst.insert(6)
+# bst.insert(7)
