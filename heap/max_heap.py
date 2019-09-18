@@ -19,7 +19,10 @@ class Heap:
         """
         Return array position 0 on list (since it's a max-heap)
         """
-        pass
+        if len(self.storage) is 0:
+            return None
+        else:
+            return self.storage[0]
 
     def get_size(self):
         """
