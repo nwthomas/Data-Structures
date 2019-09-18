@@ -12,8 +12,7 @@ class Heap:
         If Arr[i] > Arr[i/2] then swap (parent is bigger)
         """
         self.storage.append(value)
-        if self.get_size() > 1:
-            self._bubble_up(self.get_size() - 1)
+        self._bubble_up(self.get_size() - 1)
 
     """
     Take in value
