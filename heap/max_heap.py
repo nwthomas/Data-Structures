@@ -70,12 +70,12 @@ class Heap:
         if left and right:
             left_compare = self.storage[i] - self.storage[left]
             right_compare = self.storage[i] - self.storage[right]
-            if right_compare < left_compare and right_compare < 0:
-                self._swap(i, right)
-                self._sift_down(right)
-            elif left_compare <= right_compare and left_compare < 0:
+            if left_compare <= right_compare and left_compare < 0:
                 self._swap(i, left)
                 self._sift_down(left)
+            elif right_compare < left_compare and right_compare < 0:
+                self._swap(i, right)
+                self._sift_down(right)
         elif left:
             if self.storage[i] < self.storage[left]:
                 self._swap(i, left)

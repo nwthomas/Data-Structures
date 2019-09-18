@@ -32,13 +32,23 @@ The runtime complexity of `get_max` is `O(n)`.
 
 1. What is the runtime complexity of `_bubble_up`?
 
+This private method runs in `O(log(n))` time.
+
 2. What is the runtime complexity of `_sift_down`?
+
+The runtime complexity of this method is `O(log(n))` in keeping with all other Binary Search-esque functionality.
 
 3. What is the runtime complexity of `insert`?
 
+The actual insertion of a value into the array is `O(1)`, but the bubbling up process means that this method runs in `O(log(n))` time.
+
 4. What is the runtime complexity of `delete`?
 
+The insertion and swap of the initial root node are `O(1)`, but the subsequent swaps of values down the tree run make this method run in `O(log(n))` time.
+
 5. What is the runtime complexity of `get_max`?
+
+The runtime complexity of this method is `O(1)` since we're merely looking up the first array position index's value.
 
 ## Doubly Linked List
 
