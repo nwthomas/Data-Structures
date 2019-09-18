@@ -14,14 +14,15 @@ class Heap:
         self.storage.append(value)
         self._bubble_up(self.get_size() - 1)
 
-    """
-    Take in value
-    """
-
     def delete(self):
         """
+        Removes the highest value (first array position) and
+        sorts the rest of the heap progressively
         """
-        pass
+        top = self.storage[0]
+        self.storage[0] = self.storage.pop()
+        self._sift_down(0)
+        return top
 
     def get_max(self):
         """
@@ -51,8 +52,40 @@ class Heap:
             i = p_index
             p_index = floor((p_index - 1) / 2)
 
-    def _sift_down(self, index):
+    def _sift_down(self, i):
         """
         Helper function to compare to parent node and and switch if appropriate
         """
-        pass
+        left = (2 * i) + 1
+        right = (2 * i) + 2
+        if left > self.get_size() - 1:
+            left = None
+        if right > self.get_size() - 1:
+            right = None
+        print(left, right, self.storage)
+
+
+"""
+1. Get Left/Right indexes using formula
+2. Check to see if they're out of range and set to None if so
+3. If Left/Right:
+    A. Check if Left is greater and is greater than Index - Switch if so
+    B.Check if Right is greater and is greater than Index - Switch if so
+4. If Left only:
+    A. Check if Left is greater than index - Switch if so
+5. If Right only:
+    A. Check if Right is greater than index - Switch if so
+6. Recursive call inside each if/else block
+"""
+
+
+l = Heap()
+l.insert(10)
+l.insert(5)
+l.insert(9)
+l.insert(4)
+l.insert(7)
+l.insert(2)
+l.insert(3)
+l.insert(12)
+print(l.delete())

@@ -14,7 +14,7 @@ class BinarySearchTree:
         while traverse_nodes:
             if current.value > value and current.left:
                 current = current.left
-            elif current.value < value and current.right:
+            elif current.value <= value and current.right:
                 current = current.right
             elif current.value > value and not current.left:
                 current.left = BinarySearchTree(value)
@@ -35,7 +35,7 @@ class BinarySearchTree:
                 return True
             elif current.value > target and current.left:
                 current = current.left
-            elif current.value < target and current.right:
+            elif current.value <= target and current.right:
                 current = current.right
             elif current.value > target and not current.left:
                 return False
@@ -54,7 +54,7 @@ class BinarySearchTree:
                 current = current.right
             elif not current.right:
                 traverse_nodes = False
-            if current.value > highest:
+            if current.value >= highest:
                 highest = current.value
         return highest
 
