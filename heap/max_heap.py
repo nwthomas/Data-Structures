@@ -1,14 +1,23 @@
+from math import floor
+
+
 class Heap:
     def __init__(self):
         self.storage = []
 
     def insert(self, value):
         """
-        Check if stroage is empty, if it is start at beginning
+        Check if storage is empty, if it is start at beginning
         Put the value at the end of the list (append)
         If Arr[i] > Arr[i/2] then swap (parent is bigger)
         """
-        pass
+        self.storage.append(value)
+        if self.get_size() > 1:
+            self._bubble_up(self.get_size() - 1)
+
+    """
+    Take in value
+    """
 
     def delete(self):
         """
@@ -30,11 +39,18 @@ class Heap:
         """
         return len(self.storage)
 
-    def _bubble_up(self, index):
+    def _bubble_up(self, i):
         """
         Helper function to compare to parent node and and switch if appropriate
         """
-        pass
+        p_index = floor((i - 1) / 2)
+        while self.storage[i] > self.storage[p_index] and p_index >= 0:
+            self.storage[i], self.storage[p_index] = (
+                self.storage[p_index],
+                self.storage[i],
+            )
+            i = p_index
+            p_index = floor((p_index - 1) / 2)
 
     def _sift_down(self, index):
         """
