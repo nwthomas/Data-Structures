@@ -19,8 +19,12 @@ class Heap:
         Removes the highest value (first array position) and
         sorts the rest of the heap progressively
         """
+        # print(self.storage)
         top = self.storage[0]
-        self.storage[0] = self.storage.pop()
+        if self.get_size() > 1:
+            self.storage[0] = self.storage.pop()
+        else:
+            self.storage.pop()
         self._sift_down(0)
         return top
 
@@ -56,36 +60,56 @@ class Heap:
         """
         Helper function to compare to parent node and and switch if appropriate
         """
+        # print(self.storage)
+        # Find left/right indices
         left = (2 * i) + 1
         right = (2 * i) + 2
+
+        # Find if left/right exist
         if left > self.get_size() - 1:
             left = None
         if right > self.get_size() - 1:
             right = None
-        print(left, right, self.storage)
+
+        # Control flow for comparing/switching values
+        if left and right:
+            left_compare = self.storage[i] - self.storage[left]
+            right_compare = self.storage[i] - self.storage[right]
+            if right_compare < left_compare and right_compare < 0:
+                self.storage[i], self.storage[right] = (
+                    self.storage[right],
+                    self.storage[i],
+                )
+                self._sift_down(right)
+            elif left_compare <= right_compare and left_compare < 0:
+                self.storage[i], self.storage[left] = (
+                    self.storage[left],
+                    self.storage[i],
+                )
+                self._sift_down(left)
+        elif left:
+            if self.storage[i] < self.storage[left]:
+                self.storage[i], self.storage[left] = (
+                    self.storage[left],
+                    self.storage[i],
+                )
+                self._sift_down(left)
+        elif right:
+            if self.storage[i] < self.storage[right]:
+                self.storage[i], self.storage[right] = (
+                    self.storage[right],
+                    self.storage[i],
+                )
+                self._sift_down(right)
 
 
-"""
-1. Get Left/Right indexes using formula
-2. Check to see if they're out of range and set to None if so
-3. If Left/Right:
-    A. Check if Left is greater and is greater than Index - Switch if so
-    B.Check if Right is greater and is greater than Index - Switch if so
-4. If Left only:
-    A. Check if Left is greater than index - Switch if so
-5. If Right only:
-    A. Check if Right is greater than index - Switch if so
-6. Recursive call inside each if/else block
-"""
-
-
-l = Heap()
-l.insert(10)
-l.insert(5)
-l.insert(9)
-l.insert(4)
-l.insert(7)
-l.insert(2)
-l.insert(3)
-l.insert(12)
-print(l.delete())
+# l = Heap()
+# l.insert(10)
+# l.insert(5)
+# l.insert(9)
+# l.insert(4)
+# l.insert(7)
+# l.insert(2)
+# l.insert(3)
+# l.insert(12)
+# print(l.delete())
