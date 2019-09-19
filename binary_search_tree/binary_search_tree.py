@@ -71,8 +71,20 @@ class BinarySearchTree:
 
     # Print all the values in order from low to high
     # Hint:  Use a recursive, depth first traversal
-    def in_order_dft(self):
-        pass
+    def in_order_dft(self, node):
+        values = []
+
+        def dfs(n):
+            values.append(n.value)
+            if n.right:
+                dfs(n.right)
+            if n.left:
+                dfs(n.left)
+
+        dfs(node)
+        values.sort()
+        for val in values:
+            print(val)
 
     # Print the value of every node, starting with the given node,
     # in an iterative breadth first traversal
@@ -95,7 +107,11 @@ class BinarySearchTree:
     # Print the value of every node, starting with the given node,
     # in an iterative depth first traversal
     def dft_print(self, node):
-        pass
+        print(node.value)
+        if node.right:
+            self.dft_print(node.right)
+        if node.left:
+            self.dft_print(node.left)
 
     # STRETCH Goals -------------------------
     # Note: Research may be required
