@@ -18,15 +18,15 @@ The runtime complexity for `len` is `O(1)` since we have preserved the size of t
 
 1. What is the runtime complexity of `insert`?
 
-The runtime complexity of `insert` is worst case of `O(n)`.
+The runtime complexity of `insert` is worst case of `O(log(n))`.
 
 2. What is the runtime complexity of `contains`?
 
-The runtime complexity of `contains` is `O(n)`.
+The runtime complexity of `contains` is `O(log(n))`.
 
 3. What is the runtime complexity of `get_max`?
 
-The runtime complexity of `get_max` is `O(n)`.
+The runtime complexity of `get_max` is `O(log(n))`.
 
 ## Heap
 
